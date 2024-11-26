@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미분 계산기</title>
+    <style>
+        body {
+            font-family: 'NanumGothic', sans-serif;
+            padding: 20px;
+        }
+        input, button {
+            font-size: 18px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .result {
+            margin-top: 20px;
+        }
+        img {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>미분 계산기</h1>
+    <form method="POST">
+        <label for="function">함수를 입력하세요 (예: 2*x**2 + 3*x + 1):</label><br>
+        <input type="text" id="function" name="function" required><br>
+
+        <label for="x_value">x 값을 입력하세요 (예: 2):</label><br>
+        <input type="text" id="x_value" name="x_value"><br>
+
+        <button type="submit">도함수 계산하기</button>
+    </form>
+
+    <div class="result">
+        <h2>결과:</h2>
+        <p><strong>도함수:</strong> {{ derivative_expr }}</p>
+        <p><strong>f'(x) 값:</strong> {{ derivative_value }}</p>
+        <h3>그래프:</h3>
+        <img src="{{ graph_url }}" alt="함수와 도함수 그래프">
+    </div>
+</body>
+</html>
